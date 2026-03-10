@@ -1,15 +1,11 @@
 # Department-wise Salary Analysis 📊
 
-# =======================
-# 1️⃣ Import Libraries
-# =======================
+#  Import Libraries
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# =======================
-# 2️⃣ Load Dataset
-# =======================
+#  Load Dataset
 try:
     data = pd.read_csv("department_salary.csv")
     print("✅ CSV Loaded Successfully!")
@@ -22,9 +18,7 @@ except FileNotFoundError:
 
 print("\nDataset Preview:\n", data.head())
 
-# =======================
-# 3️⃣ Department-wise Salary Analysis
-# =======================
+#  Department-wise Salary Analysis
 # Calculate average and total salary
 avg_salary = data.groupby("Department")["Salary"].mean()
 total_salary = data.groupby("Department")["Salary"].sum()
@@ -37,9 +31,8 @@ total_salary = total_salary.reindex(order)
 print("\nAverage Salary per Department:\n", avg_salary)
 print("\nTotal Salary per Department:\n", total_salary)
 
-# =======================
-# 4️⃣ Visualization (Excel-like)
-# =======================
+#  Visualization (Excel-like)
+
 x = np.arange(len(order))
 width = 0.35
 
@@ -63,10 +56,11 @@ plt.legend()
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
 
-# =======================
-# 5️⃣ Key Insights
-# =======================
+
+#  Key Insights
+
 print("\n🔍 Key Insights:")
 print("- IT department has the highest total salary.")
 print("- Average salaries are relatively similar across departments.")
 print("- Total salary depends on number of employees per department.")
+
